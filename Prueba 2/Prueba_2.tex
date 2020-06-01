@@ -119,41 +119,43 @@
     es integrable.
     $$\sum_{n=0}^{+\infty} \frac{1}{(n+2)n!} = 1$$
     
-    Para el siguiente apartado vamos a demostrar la igualdad anterior. Para ello consideremos una función $f(x)$ dada por
-     $f(x) = e^x x$, la cual vemos que es continua $\forall x \in \R$,
-    particularmente en el intervalo $[0,1]$. Por ello podemos afirmar que dicha función es integrable en el intervalo, y considerando 
+    Para el siguiente apartado vamos a demostrar la igualdad anterior. Para ello consideremos nuestra función $f(x)$ vista anteriormente, la cual como sabemos que 
+    es integrable, podemos calcular su integral definida en el intervalo $[0,1]$. Considerando primero un cambio de variable de la forma $x=t^2$, $dx = 2t \thinspace dt$,
+    obtenemos la integral
+    $$\int_0^1 e^t 2t \thinspace dt$$
+    La cual se resuelve mediante integración por partes, dada por los cambios siguientes
     \begin{equation*}
         \left[
         \begin{aligned}
-            u = x \\
-            du = dx
+            u = t \\
+            du = dt
         \end{aligned}
         \right]\\
         \left[
         \begin{aligned}
-            v = e^x \\
-            dv = e^x
+            v = e^t \\
+            dv = e^t
         \end{aligned}
         \right]
     \end{equation*}
-    Podemos resolver fácilmente la integral siguiente:
-    $$\int_0^1 f(x) \thinspace dx = \int_0^1 e^x x \thinspace dx = \left[e^x x - \int e^x dx \right]_0^1 = \left[e^x x - e^x \right]_0^1 = 1 $$
-    $$\Rightarrow \int_0^1 e^x x \thinspace dx = 1$$
+    Podemos resolver así fácilmente la integral planteada:
+    $$2 \int_0^1 e^t t \thinspace dt = 2 \left[e^t t - \int e^t dt \right]_0^1 = 2 \left[e^t t - e^t \right]_0^1 = 2 \cdot 1 = 2 $$
+    $$\Rightarrow \int_0^1 e^{\sqrt{x}} \thinspace dx = 2$$
     Este resultado lo usaremos más adelante. Calculemos la serie de Taylor centrada en cero para nuestra función $f(x)$. Para ello consideremos la serie de Taylor 
-    asociada a $e^x$, la cual sabemos que viene dada por $\sum_{n=0}^{\infty} \frac{x^n}{n!}$, opr lo que sustituyendo en nuestra función $f(x)$ obtenemos
-    $$f(x) = x \sum_{n=0}^{\infty} \frac{x^n}{n!} = \sum_{n=0}^{\infty} \frac{x^{n+1}}{n!}$$
-    Consideremos por tanto la integral definida entre $0$ y $1$ en ambos lados de la igualdad, tenemos
-    $$\int_0^1f(x) \thinspace dx = \int_0^1 \sum_{n=0}^{\infty} \frac{x^{n+1}}{n!} \thinspace dx$$
-    Ya que la serie $\sum_{n=0}^{\infty} \frac{x^{n+1}}{n!}$ es convergente, podemos aplicar entonces el Teorema de la COnvergencia Absoluta, por el cual se cumple
-    la igualdad
-    $$\int_0^1 \sum_{n=0}^{\infty} \frac{x^{n+1}}{n!} \thinspace dx = \sum_{n=0}^{\infty} \int_0^1 \frac{x^{n+1}}{n!} \thinspace dx$$
+    asociada a $e^{\sqrt{x}}$, la cual sabemos que viene dada por $\sum_{n=0}^{\infty} \frac{x^{\frac{n}{2}}}{n!}$, por lo que sustituyendo en nuestra función $f(x)$ obtenemos
+    $$f(x) = \sum_{n=0}^{\infty} \frac{x^{\frac{n}{2}}}{n!}$$
+    Consideremos por tanto la integral definida entre $0$ y $1$ en ambos lados de la igualdad. Tenemos por tanto
+    $$\int_0^1f(x) \thinspace dx = \int_0^1 \sum_{n=0}^{\infty} \frac{x^{\frac{n}{2}}}{n!} \thinspace dx$$
+    Ya que la serie $\sum_{n=0}^{\infty} \frac{x^{n/2}}{n!}$ es convergente (y además converge absolutamente, ya que $x>0$), podemos aplicar entonces 
+    el Teorema de la Convergencia Absoluta, por el cual se cumple la igualdad
+    $$\int_0^1 \sum_{n=0}^{\infty} \frac{x^{\frac{n}{2}}}{n!} \thinspace dx = \sum_{n=0}^{\infty} \int_0^1 \frac{x^{\frac{n}{2}}}{n!} \thinspace dx$$
     Entonces, calculando ahora la integral, obtenemos
-    $$\sum_{n=0}^{\infty} \int_0^1 \frac{x^{n+1}}{n!} \thinspace dx = \sum_{n=0}^{\infty} \frac{1}{n!} \int_0^1 x^{n+1} \thinspace dx = 
-    \sum_{n=0}^{\infty} \frac{1}{n!} \cdot \left[\frac{x^{n+2}}{n+2}\right]_0^1 = \sum_{n=0}^{+\infty} \frac{1}{(n+2)n!} $$
+    $$\sum_{n=0}^{\infty} \int_0^1 \frac{x^{\frac{n}{2}}}{n!} \thinspace dx = \sum_{n=0}^{\infty} \frac{1}{n!} \int_0^1 x^{\frac{n}{2}} \thinspace dx = 
+    \sum_{n=0}^{\infty} \frac{1}{n!} \cdot \left[2 \frac{x^{\frac{n+2}{2}}}{n+2} \right]_0^1 = \sum_{n=0}^{+\infty} \frac{2}{(n+2)n!} $$
     Con lo que hemos concluido que la integral de nuestra función $f(x)$ definida en el intervalo $[0,1]$ es igual a la serie anterior, por lo que hemos llegado a 
-    $$\int_0^1 f(x) \thinspace dx = \sum_{n=0}^{+\infty} \frac{1}{(n+2)n!} $$
-    Y como vimos antes, el valor de la integral es $1$, por lo que hemos llegado a la igualdad
-    $$1 = \sum_{n=0}^{+\infty} \frac{1}{(n+2)n!}$$
+    $$\int_0^1 f(x) \thinspace dx = \sum_{n=0}^{+\infty} \frac{2}{(n+2)n!} $$
+    Y como vimos antes el cálculo de la integral de nuestra función $f(x)$ tal que $\int_0^1 e^{\sqrt{x}} \thinspace dx = 2$, tenemos por tanto
+    $$2 = \sum_{n=0}^{+\infty} \frac{2}{(n+2)n!} \next 1 = \sum_{n=0}^{+\infty} \frac{1}{(n+2)n!}$$
     Como queríamos probar.
    
 \end{document}
