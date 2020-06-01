@@ -45,8 +45,76 @@
     \pagestyle{plain}
 
     \textbf{Ejercicio 1.} \\
+    
+    $$a) \quad \int_1^{\sqrt{3}} \frac{dx}{x^2\sqrt{4-x^2}}$$    
 
-    $$\int_1^{\sqrt{3}} \frac{dx}{x^2\sqrt{4-x^2}}$$
+    Para resolver esta integral, usaremos el siguiente cambio de variable, el cual viene dado por 
+    \begin{equation*}
+        \left[
+            \begin{aligned}
+                &x = 2\sin(t) \\
+                &dx = 2\cos(t) dt
+            \end{aligned}
+        \right] \\
+        \begin{aligned}
+            x_2 = \sqrt{3} \Rightarrow 2 \sin(t_2) &= \sqrt{3} \Rightarrow t_2 = \frac{\pi}{3} \\
+            x_1 = 1 \Rightarrow 2 \sin(t_1) &= 1 \Rightarrow t_1 = \frac{\pi}{6}
+        \end{aligned}
+    \end{equation*}
+    Y por tanto sustituyendo en la integral de partida obtenemos 
+    $$\int_{\frac{\pi}{6}}^{\frac{\pi}{3}} \frac{2\cos(t)}{(2\sin(t))^2 \sqrt{4-( 2\sin(t))^2}}dt = \int_{\frac{\pi}{6}}^{\frac{\pi}{3}} \frac{2\cos(t)}{4\sin^2(t) 2\cos(t)}dt = \frac{1}{4}\int_{\frac{\pi}{6}}^{\frac{\pi}{3}} \frac{1}{\sin^2(t)}dt = $$
+    $$ \frac{1}{4}\int_{\frac{\pi}{6}}^{\frac{\pi}{3}} \csc^2(t) dt = \frac{1}{4} \left[-\cot(t)\right]_{\frac{\pi}{6}}^{\frac{\pi}{3}} = \frac{1}{4}\left(-\frac{1}{\sqrt{3}} + \sqrt{3} \right) = \boxed{\frac{1}{2\sqrt{3}}}$$
 
+    $\quad$\\ \\
 
+    $$b) \quad \int_0^{+\infty} \frac{dx}{(x+1)\sqrt{x}}$$    
+
+    Para resolver esta integral, usaremos el siguiente cambio de variable, el cual viene dado por 
+    \begin{equation*}
+        \left[
+            \begin{aligned}
+                &x = t^2 \\
+                &dx = 2t \thinspace dt
+            \end{aligned}
+        \right] \\
+    \end{equation*}
+    Y por tanto sustituyendo en la integral indefinida asociada
+    $$\int \frac{2t}{(t^2+1)t} dt = 2 \int \frac{1}{t^2+1} dt = 2\arctan(t) + C$$
+    y deshaciendo el cambio de variable obtenemos
+    $$\int \frac{dx}{(x+1)\sqrt{x}} = 2\arctan(\sqrt{x}) + C $$
+    Por tanto la integral definida resulta
+    $$\int_0^{+\infty} \frac{dx}{(x+1)\sqrt{x}} = 2\left[\arctan(\sqrt{x})\right]_0^{+\infty} = 2\left(\frac{\pi}{2} - 0\right) = \boxed{\pi}$$
+
+    \newpage
+
+    \textbf{Ejercicio 2.} \\
+   
+    $$f(x) = \frac{1}{\sqrt{x}}\sin \left( \frac{1}{x} \right), \quad \forall \thinspace 0 < x < 1$$
+    
+    Podemos ver que se trata de una función continua definida en un intervalo abierto $]0,1[$, y que estudiando su comportamiento en los extremos del intervalo 
+    observamos que
+    \begin{equation*}
+        \lim_{x \to 0} f(x) = +\infty\\
+        \lim_{x \to 1} f(x) = \sin(1)
+    \end{equation*}
+    Por lo que podemos afirmar que la función es continua en el intervalo $]0,1]$. Veamos si podemos acotar la función por otra función integrable. Para ello 
+    tratemos de encontrar una función que acote a nuestra función $f(x)$ y sea integrable. Por ello consideremos la función $g(x) = \frac{1}{\sqrt{x}}$, con la que vemos que
+    podemos acotar la función $f(x)$ en el intervalo $]0,1]$, de la siguiente manera
+    $$\left| \frac{1}{\sqrt{x}}\sin \left( \frac{1}{x} \right) \right| \leq \frac{1}{\sqrt{x}}$$
+    Como sabemos que la función $g(x)$ es una función integrable (por ser de la forma $g(x) = x^a$, con $a>-1$), entonces concluimos que la función $f(x)$ es integrable
+    en el intervalo $[0,1]$.\\ \\
+
+    \textbf{Ejercicio 3.} \\
+
+    $$f(x) = e^{\sqrt{x}}, \quad \forall \thinspace 0 \leq x \leq 1$$
+
+    Veamos si se trata de una función integrable. En una primera observación podemos ver que se trata de una función continua en $[0,1]$, donde vemos además que
+    \begin{equation*}
+        \lim_{x \to 0} f(x) = 1\\
+        \lim_{x \to 1} f(x) = e
+    \end{equation*}
+    Por lo que concluimos que, al tratarse de una función continua y la integral está definida en un intervalo cerrado y acotado, concluimos que la función $f(x)$
+    es integrable.
+
+   
 \end{document}
