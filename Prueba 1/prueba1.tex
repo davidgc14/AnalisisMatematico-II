@@ -1,0 +1,243 @@
+\documentclass[fleqn]{article}
+
+%\pgfplotsset{compat=1.17}
+
+\usepackage{mathexam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{systeme}
+\usepackage{microtype}
+\usepackage{multirow}
+\usepackage{pgfplots}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{dsfont} %Numeros reales, naturales...
+\usepackage{cancel}
+\usepackage{verbatim} %Comentario de parrafo
+
+%\graphicspath{{images/}}
+\newcommand*{\QED}{\hfill\ensuremath{\square}}
+
+%Estructura de ecuaciones
+\setlength{\textwidth}{15cm} \setlength{\oddsidemargin}{5mm}
+\setlength{\textheight}{23cm} \setlength{\topmargin}{-1cm}
+
+
+
+\author{David García Curbelo}
+\title{Análisis Matemático II}
+\date{Prueba 1}
+
+\pagestyle{empty}
+
+
+\def\R{\mathds{R}}
+\def\Z{\mathds{Z}}
+\def\N{\mathds{N}}
+\def\sup{$^2$}
+
+\begin{document}
+    \maketitle
+    \setcounter{page}{1}
+    \pagestyle{plain}
+
+    \textbf{Ejercicio 1. } \textit{Sean $(\Omega, \mathcal{A})$ un espacio medible y $\{\mu_n\}$ una sucesión de medidas sobre $\mathcal{A}$.
+    Demostrar:
+    \begin{enumerate}
+        \item [a)] Si $\mu_n \leq \mu_{n+1}, \quad \forall n \in \N$, entonces la aplicación $\mu : \mathcal{A} \longrightarrow [0,\infty]$
+                definida por 
+                $$\mu(A)=\lim_n \mu_n(A), \quad \forall A \in \mathcal{A}$$
+                es una medida sobre $\mathcal{A}$.
+        \item [b)] La aplicación $\mu : \mathcal{A} \longrightarrow [0,\infty]$ definida por
+                $$\mu(A) = \sum_{n=1}^{\infty} \mu_n(A), \quad \forall A \in \mathcal{A}$$
+                es una medida sobre $\mathcal{A}$. \\ \\
+    \end{enumerate}
+    }
+
+    $a) \quad$ Para comprobar que la aplicación $\mu : \mathcal{A} \longrightarrow [0,\infty]$ es una medida sobre $\mathcal{A}$, tenemos que 
+    comprobar que se cumplan tanto que $\mu(\emptyset)=0$ como la $\sigma$-aditividad de la medida. Para ello, partiendo de que 
+    $\mu_n \leq \mu_{n+1}$, vemos que la sucesión $\{\mu_n\}$ es creciente y acotada (por estar definida en el intervalo $[0,\infty]$) y 
+    por tanto convergente. Procedemos a la demostración de las dos propiedades antes nombradas.
+    \begin{enumerate}
+        \item $\mu(\emptyset)=0$: 
+    
+                Para que se cumpla dicha propiedad, consideremos el conjunto 
+                vacío $A=\emptyset$ en $\mathcal{A}$, y como sabemos que $\mu_n$ es una medida $\forall \thinspace n \thinspace \in \thinspace \N$,
+                podemos afirmar que se cumple $\mu_n(\emptyset)=0$. Obtenemos por tanto, para $A=\emptyset$
+                $$\mu(\emptyset) = \mu(A) = \sum_{n=1}^{\infty} \mu_n(A) = \sum_{n=1}^{\infty} \mu_n(\emptyset) = \sum_{n=1}^{\infty} 0 = 0 $$
+        \item $\sigma$-aditividad: 
+
+                Para este apartado, recordamos que $\mu_n$ es una medida $\forall \thinspace n \thinspace \in \thinspace \N$, y consideremos $\{A_k\}_{k\in\N}$
+                una sucesión de elementos de $\mathcal{A}$ disjuntos dos a dos. Veamos por tanto que se verifica la propiedad de $\sigma$-aditividad.
+                $$\mu_n(A) = \sum_k \mu_n (A_k), \quad \forall n \in \N$$
+                Donde $A = \cup_k A_k, \quad A \in \mathcal{A}$, y donde para cada $n$, $\mu_n$ es una medida.\\
+                Como $\{\mu_n\}$ es creciente, la sucesión $\{\mu_n(A)\} \subset \R$ tiene por límite $\mu(A)$ comprendido en el intervalo $[0,+\infty]$.
+                Supongámos primero que la sucesión converge, con $\mu(A)= +\infty$. Pero entonces, para cada $M \in \R$, existe algún $n_0 \leq n$ tal que
+                $\mu_n(A)>M$. Pero entonces existe algún $K \in \N$ tal que
+                $$M-1 < \sum_{k=1}^K \mu_{n_0} (A_k) \leq \sum_{k=1}^K \mu_{n} (A_k) \quad \Rightarrow \quad \sum_{k=1}^K \mu (A_k) > M-1 \quad \Rightarrow \quad \sum_{k=1}^{\infty} \mu (A_k) = +\infty = \mu(A) $$ 
+
+                Para el segundo caso, suponemos ahora que $\mu(A) < +\infty$, y como sabemos que $\{\mu_n\}$ es creciente, tenemos que
+                $$\mu_n(A) = \sum_k \mu_n(A_k) \quad \Rightarrow \quad \mu_n(A) \leq \sum_k \mu(A_k), \quad \forall n \in \N$$
+                Donde $A\in \mathcal{A}$ viene dado por $A = \cup_k A_k$. Concluimos por tanto que $\mu(A) \leq \sum_k \mu(A_k)$.\\
+                Demostremos a continuación la desigualdad contraria. Recordemos que $0 \leq \mu_n(A_k) < \infty, \quad \forall \thinspace n,k \thinspace \in \thinspace \N$, 
+                y que además toda $\mu_n$ es medible, con $\{\mu_n\}$ monótona creciente. Por tanto obtenemos
+                $$\mu(A) \geq \sum_{k=1}^{\infty} \mu_{n} (A_k) \geq \sum_{k=1}^{K} \mu_{n} (A_k), \quad \forall \thinspace n,K \in \thinspace \N$$
+                Ahora consideremos un $\epsilon > 0$ arbitrario y un $K$ finito dado. Tomamos a continuación un $n_0$ tal que, para $n \geq n_0$ tenemos 
+                $\mu_n(A_k) \geq \mu_n(A_k) - \epsilon 2^{-k} $, para cada $k=1,2,...,K$. Por tanto obtenemos
+                $$\sum_{k=1}^{K} \mu_{n_0} (A_k) \geq \sum_{k=1}^{K} \mu (A_k) - \epsilon \quad \Rightarrow \quad \mu(A) \geq \sum_{k=1}^{\infty} \mu (A_k) - \epsilon \geq \sum_{k=1}^{K} \mu (A_k) - \epsilon $$
+                Como $\epsilon$ es un valor arbitrario, concluimos que $\mu(A) \geq \sum_{k=1}^{\infty} \mu (A_k)$, con lo que optenemos la igualdad buscada.\\ \\
+        \end{enumerate}
+
+    $b) \quad$ Para comprobar que la aplicación $\mu : \mathcal{A} \longrightarrow [0,\infty]$ es una medida sobre $\mathcal{A}$, podemos ver que la suma de medidas es 
+    obviamente una medida, y por tanto
+    $$\mu^*_n = \sum _{i=1}^n \mu_i$$
+    es una sucesión creciente de medidas, donde $\mu^*_n \leq \mu^*_{n+1}$. Por el apartado anterior, vemos que 
+    $$\lim_n \mu^*_n (A) = \lim_n \sum _{i=1}^n \mu_i (A) = \sum_{n=1}^{\infty} \mu_n (A)$$ 
+    se trata de una medida.
+
+
+    \newpage
+
+    \textbf{Ejercicio 2. } \textit{Sea $(\Omega, \mathcal{A}, \mu)$ un espacio de medida completo. Para cada $n \in \N$, sea 
+    $f_n : \Omega \longrightarrow \R$ una función medible. Sean $f,g:\Omega \longrightarrow \R$ funciones medibles. Demostrar:
+    \begin{enumerate}
+        \item [a)] Si $\{f_n\} \rightarrow f$ c.p.d. y $\{f_n\} \rightarrow g$ c.p.d., entonces $f=g$ c.p.d.
+        \item [b)] Si $\{f_n\} \rightarrow f$ c.p.d. y $f=g$ c.p.d., entonces $\{f_n\} \rightarrow g$ c.p.d. \\ \\
+    \end{enumerate}
+    }
+
+    Consideremos los siguientes 3 conjuntos finitos que nos serán útiles en la resolución de los siguientes apartados:
+    \begin{equation*}
+        \begin{aligned}
+            Z_1=\{x\in \Omega;\quad \{f_n(x)\}\nrightarrow f(x)\} \\
+            Z_2=\{x\in \Omega;\quad \{f_n(x)\}\nrightarrow g(x)\}\\
+            Z_3=\{x\in \Omega;\quad f(x) \neq g(x)\} \quad \thinspace \thinspace \thinspace
+        \end{aligned}
+    \end{equation*}
+
+    $a) \quad$ Suponemos por hipótesis que $\{f_n\}$ converge a $g(x)$ c.p.d y que $\{f_n\}$ converge a $f(x)$ c.p.d. Podemos considerar entonces
+    un $x\in \Omega$ tal que $x \in Z_1^c \cap Z_2^c$, y por tanto tenemos $x \in Z_3^c$. De lo anterior podemos deducir que 
+    $$Z_1^c \cap Z_2^c \subseteq Z_3^c \Rightarrow Z_3 \subseteq Z_1 \cup Z_2$$
+    Y que, por encontrarse en un espacio de medida completo, concluimos que $ \mu(Z_1 \cup Z_2)=0 \Rightarrow \mu(Z_3)=0$, y por tanto $f(x)=g(x)$ c.p.d. \\ \\
+
+    $b) \quad$Para este apartado razonamos de forma similar al anterior. Suponemos por hipótesis que $\{f_n\}$ converge a $f(x)$ c.p.d 
+    y que $f=g$ c.p.d. Podemos considerar entonces un $x\in \Omega$ tal que $x \in Z_1^c \cap Z_3^c$, y por tanto tenemos que $x \in \Z_2^c$. Además, de lo anterior podemos deducir que 
+    $$Z_1^c \cap Z_3^c \subseteq Z_2^c \Rightarrow Z_2 \subseteq Z_1 \cup Z_3$$
+    Y que, por encontrarse en un espacio de medida completo, concluimos que $\mu(Z_1 \cup Z_3)=0 \Rightarrow \mu(Z_2)=0$, y por tanto $\{f_n\}$ converge a $g(x)$ c.p.d. \\ \\
+
+    \newpage
+
+    \textbf{Ejercicio 3.}\textit{Sean $E \subset \R^N$ un conjunto medible y $f : E \longrightarrow [0,\infty[$ una función medible con
+    $\int_E f(x) dx < \infty$. Para cada $n \in \N$, sea $E_n = \{x \in E: \quad ||x||>n\}$.}
+    
+    \textit{Probar que $E_n$ es medible y que 
+    $$\lim_n \int_{E_n} f(x) \thinspace dx = 0.$$}\\ \\ 
+
+    Para la resolución del primer apartado vamos a considerar una aplicación $\alpha$ definida tal que
+    \begin{equation*}
+        \begin{aligned}
+            \alpha : E\longrightarrow \R_0^+ \quad \quad\\
+            \quad \quad \quad \quad x \longmapsto \alpha(x)=||x||
+        \end{aligned}
+    \end{equation*}
+    La cual es claramente medible por ser continua en $E$. Por el teorema de Hausdorff, como todas las normas son equivalentes en $\R^n$,
+    no es necesario especificar la norma ya que la demostración se realizará de la misma manera.
+
+    Por hipótesis, vemos que $\alpha^{-1} (]n,\infty[) = E_n, \quad \forall n \in \N$. Como $]n,\infty[$ es un conjunto medible en $\R$, obtenemos que
+    el conjunto $E_n$ es un conjunto medible para todo $n \in \N$, como queríamos demostrar.\\ \\
+
+    Para el segundo apartado, buscamos demostrar la veracidad de la igualdad $\lim_n \int_{E_n} f(x) \thinspace dx = 0$. Para ello, consideremos
+    la sucesión de conjuntos $\{E_n\}_n$, la cual vemos que se trata de una sucesión decreciente (es decir, $E_{n+1} \subseteq E_n$ para todo $n \in \N$),
+    y por tanto la sucesión $\{\lambda(E_n)\}_n$ también lo es, donde $\lambda$ es una medida tal que $\lambda : E_n \rightarrow [0,\infty]$. 
+    Por ello, podemos ver que la sucesión $\{\lambda(E_n)\}_n$ está acotada inferiormente por $0$, y por ello, al ser una sucesión monótona y 
+    acotada, sabemos que es convergente, y que por tanto
+    $$\lim_n \lambda(E_n) = 0$$
+    Y por tanto, concluimos que $\{\lambda(E_n)\}_n$ tiende a un conjunto de medida nula. Como bien sabemos, la integral de una función $f(x)$
+    medible definida en un conjunto $E_n$ dado, se puede definir como la medida del recinto de la función restringido al conjunto $E_n$
+    $$\lim_n \int_{E_n} f(x) \thinspace dx = \lim_n \lambda(R_n(f))$$
+    Donde $R_n$ (recinto) viene dado por $R_n = \{(x,y) \thinspace / \thinspace x\in E_n, \thinspace 0<y<f(x)\}$, y por lo tanto obtenemos que
+    $$\lim_n \lambda(R_n(f)) = \lambda\left(\{(x,y) \thinspace / \thinspace x\in \thinspace \lim_n E_n, \thinspace 0<y<f(x)\}\right)$$
+    Y como sabemos que $\lim_n E_n$ es un conjunto de medida nula, tenemos que $R$ es un conjunto vacío, y por ser $\lambda$ una medida, 
+    la medida de un conjunto vacío es $0$ por definición, y por lo tanto obtenemos
+    $$\lim_n \int_{E_n} f(x) \thinspace dx = 0$$
+
+    
+    \newpage
+
+    \textbf{Ejercicio 4.}\textit{Para cada $n \in \N$, sea $f_n : ]0,\pi[ \longrightarrow \R$ definida por 
+    $$f_n(x) = \frac{\sin^2(nx)}{n \sin(x)}, \quad \forall \thinspace 0 < x < \pi$$
+    \begin{enumerate}
+        \item [a)] Estudiar la convergencia puntual y uniforme de $\{f_n\}$ en $]0,\pi[$.
+        \item [b)] Calcular $\int _a^b f_n(x) dx$, donde $0 < a < b < \pi$. \\ \\
+    \end{enumerate}
+}
+
+$a) \quad$Procedemos a la resolución del primer apartado. Estudiaremos primero su convergencia puntual y posteriormente su convergencia
+uniforme de la sucesión. Sabemos que la sucesión de funciones dada $\{f_n\}$ convergerá puntualmente en el intervalo 
+$]0,\pi[ \subset \R$ si para cada $x \in ]0,\pi[$ la sucesión es convergente a una misma función. Para ello consideramos el límite
+$$\lim_{n\rightarrow \infty} \{f_n\}, \quad {n \in \N} $$
+Sabemos que $0<\sin(x)< 1$ y $0<\sin^2(nx)< 1$, con $x \in ]0,\pi[$, particularmente $\sin(x)\neq 0$. Por ello, es fácil ver que
+$$\{f_n\} \longrightarrow \lim_{n\rightarrow \infty} \frac{\sin^2(nx)}{n \sin(x)} = 0,  \quad \forall \thinspace 0 < x < \pi.$$
+Luego podemos afirmar que la sucesión $\{f_n\}$ converge puntualmente a la función $f(x)=0,\thinspace \forall x \in ]0,\pi[$,
+donde $f(x)$ es una función $f:  ]0,\pi[ \longrightarrow \R$ continua, y por tanto medible.\\ \\
+
+Estudiamos ahora su convergencia uniforme. Partiendo de que sabemos que la sucesión de funciones $\{f_n\}$ converge puntualmente, 
+sabremos si dicha sucesión converge uniformemente a $f(x)$ si 
+$$\lim_{n\rightarrow\infty} sup\{|f_n(x) - f(x)|\} = 0, \quad x \in \thinspace ]0,\pi[$$
+Pero como la función $f(x)$ es constante nula, lo que tenemos que estudiar es $\lim_{n\rightarrow\infty} sup\{|f_n(x)|\} = 0$.
+(Observemos también que $f_n \geq 0$ para todo $x \thinspace \in ]0,\pi[$). Estudiemos dicha convergencia uniforme 
+(y por tanto, el límite antes mencionado) en dos intervalos separados: los itnervalos $]0,a]$ y $[a, \pi[$.
+
+Para el primer intervalo $]0,a]$ tomemos una sucesión $x_n$ dada por $x_n=\frac{1}{n}$, con lo que obtenemos
+$$f_n(1/n) = \frac{\sin^2(1)}{n \sin(1/n)}$$
+Si estudiamos el límite para esta sucesión cuando $n$ tiende a infinito, vemos que converge a $\sin^2(1) \neq 0$, con lo que podemos deducir
+que, al haber al menos un $x$ para el que la sucesión no converge a $0$, no hay convergencia uniforme en el intervalo $]0,a]$, con $0 < a < \pi$.
+
+Análogamente, consideremos ahora el intervalo $[a, \pi[$ y estudiemos su convergencia uniforme. Para ello basta tomar $x_n=\pi - \frac{1}{n}$,
+para el cual vemos que 
+$$f_n(\pi-1/n) = \frac{\sin^2(\pi n-1)}{n \sin(\pi - 1/n)} = \frac{(\sin(\pi n)\cos(1)-\sin(1)\cos(\pi n))^2}{n \sin(\pi - 1/n)}$$
+y es claro que si estudiamos el límite para esta sucesión cuando $n$ tiende a infinito, podemos ver que converge a $\sin^2(1) \neq 0$, 
+con lo que podemos deducir que, al haber al menos un $x$ para el que la sucesión no converge a $0$, no hay convergencia uniforme en 
+el intervalo $[a, \pi[$, con $0 < a < \pi$.\\
+
+Por lo tanto, como para ninguno de los dos intervalos anteriores hay convergencia uniforme, tenemos que estudiar la convergencia uniforme
+en intervalos de la forma $[a,b]$ con $0 < a < b < \pi$. Como sabemos que $\sin x >0$ para todo $x\in[a,b]$, y siendo éste un intervalo 
+cerrado y acotado, por el teorema de Weierstrass podemos afirmar que existe un máximo absoluto en dicho intervalo, es decir,
+existe un $M\in[a,b]$ tal que $\sin (M) \geq \sin x, \quad \forall x\in ]0,\pi[$. Por tanto deducimos que
+$$0 \leq f_n(x) = \frac{\sin^2(nx)}{n \sin(x)} \leq \frac{\sin^2(nx)}{n \sin(M)}$$
+Además, como $\sin^2(nx) \leq 1$, podemos ver que
+$$0 \leq f_n(x) \leq \frac{\sin^2(nx)}{n \sin(M)} \leq \frac{1}{n \sin(M)}$$
+Claramente vemos que $\lim_{n\rightarrow \infty} \frac{1}{n \sin(M)} = 0$, y por lo tanto podemos afirmar que hay convergencia uniforme de
+$f_n(x)$ en intervalos de la forma $[a,b]$ con $0 < a < b < \pi$.
+
+\begin{comment}
+    Como la función $f(x)$ es constante nula, estudiamos por ello los extremos relativos de la función $f_n(x)$ mediante su derivada, 
+    con $f_n'(x)=0$
+    $$f_n'(x) = \frac{2n\sin(nx)\cos(nx)\sin(x) - \sin^2(nx)\cos(x)}{n\sin^2(x)}$$
+    Estudiamos sus puntos de derivada nula, y obtenemos la ecuación
+    $$2n\sin(nx)\cos(nx)\sin(x) = \sin^2(nx)\cos(x) \Rightarrow \tan(nx)=2n\tan(x)$$
+    Vemos por tanto que los extremos relativos no se pueden calcular de manera directa
+\end{comment}
+
+
+.\\ \\
+
+$b) \quad$Para el segundo apartado consideramos
+$$\lim_n \int _a^b \frac{\sin^2(nx)}{n \sin(x)}dx$$
+Sabemos por el apartado anterior que $\{f_n\}\rightarrow 0$. Busquemos a continuación una función $g(x)$ tal que $|f_n(x)| \leq g(x)$
+para todo $n \in \N$. (Tengamos en cuenta para los próximos pasos que $\sin(x) \leq 1 \Rightarrow \frac{1}{\sin(x)}\geq 1$. Además,
+también es fácil deducir a partir de esto que $\sin^2(nx) \leq 1$)
+$$\left|\frac{\sin^2(nx)}{n \sin(x)}\right| = \frac{\sin^2(nx)}{n |\sin(x)|} \leq \frac{\sin^2(nx)}{n \sin^2(x)} \leq \frac{1}{n \sin^2(x)} \leq \frac{1}{\sin^2(x)} = g(x)$$
+La cual vemos que se trata de una función integrable, y que por acotar superiormente al valor absoluto de nuestra sucesión ${f_n} \quad \forall n \in \N$,
+podemos decir que toda función de nuestra sucesión $\{f_n\}$ es integrable. Entonces, por el Teorema de la convergencia dominada de Lebesgue podemos afirmar que 
+$$\lim_n \int_E f_n(x) dx = \int_E \lim_n f_n(x) dx = \int_E f(x)dx $$
+Siendo $f(x)$ la función a la que converge nuestra sucesión $\{f_n\}$, la cual sabemos que $f(x)=0$, y $E$ un conjunto medible, que en nuestro caso es el intervalo $[a,b]$. 
+Si particularizamos a nuestro ejemplo obtenemos
+$$\int_a^b f(x)dx = \int_a^b0 \thinspace dx = 0 \quad \Longrightarrow \quad \lim_n \int _a^b \frac{\sin^2(nx)}{n \sin(x)}dx = 0, \quad 0 < a < b < \pi.$$
+
+
+\end{document}
+
+
