@@ -1,7 +1,7 @@
-PWD c:\Users\Arquímedes\Desktop\LaTex\AnalisisMatematico-II\Prueba 2
+PWD c:\Users\Arquímedes\Desktop\.vs code\LaTex\AnalisisMatematico-II\Prueba 2
 INPUT C:\Users\Arquímedes\AppData\Local\MiKTeX\2.9\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\Arquímedes\Desktop\LaTex\AnalisisMatematico-II\Prueba 2\Prueba_2.tex
-OUTPUT c:\Users\Arquímedes\Desktop\LaTex\AnalisisMatematico-II\Prueba 2\Prueba_2.log
+INPUT c:\Users\Arquímedes\Desktop\.vs code\LaTex\AnalisisMatematico-II\Prueba 2\Prueba_2.tex
+OUTPUT c:\Users\Arquímedes\Desktop\.vs code\LaTex\AnalisisMatematico-II\Prueba 2\Prueba_2.log
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.cls
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.cls
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fleqn.clo
@@ -215,9 +215,9 @@ INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\tex\latex\cancel\ca
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\tex\latex\cancel\cancel.sty
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3backend\l3backend-pdfmode.def
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3backend\l3backend-pdfmode.def
-INPUT c:\Users\Arquímedes\Desktop\LaTex\AnalisisMatematico-II\Prueba 2\Prueba_2.aux
-INPUT c:\Users\Arquímedes\Desktop\LaTex\AnalisisMatematico-II\Prueba 2\Prueba_2.aux
-OUTPUT c:\Users\Arquímedes\Desktop\LaTex\AnalisisMatematico-II\Prueba 2\Prueba_2.aux
+INPUT c:\Users\Arquímedes\Desktop\.vs code\LaTex\AnalisisMatematico-II\Prueba 2\Prueba_2.aux
+INPUT c:\Users\Arquímedes\Desktop\.vs code\LaTex\AnalisisMatematico-II\Prueba 2\Prueba_2.aux
+OUTPUT c:\Users\Arquímedes\Desktop\.vs code\LaTex\AnalisisMatematico-II\Prueba 2\Prueba_2.aux
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmcsc10.tfm
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\mkii\supp-pdf.mkii
@@ -226,7 +226,7 @@ INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\tex\latex\epstopdf-
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\tex\latex\epstopdf-pkg\epstopdf-base.sty
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-cmr.cfg
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-cmr.cfg
-OUTPUT c:\Users\Arquímedes\Desktop\LaTex\AnalisisMatematico-II\Prueba 2\Prueba_2.pdf
+OUTPUT c:\Users\Arquímedes\Desktop\.vs code\LaTex\AnalisisMatematico-II\Prueba 2\Prueba_2.pdf
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr6.tfm
@@ -263,7 +263,7 @@ INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\am
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
 INPUT C:\Users\Arquímedes\AppData\Local\MiKTeX\2.9\pdftex\config\pdftex.map
-INPUT c:\Users\Arquímedes\Desktop\LaTex\AnalisisMatematico-II\Prueba 2\Prueba_2.aux
+INPUT c:\Users\Arquímedes\Desktop\.vs code\LaTex\AnalisisMatematico-II\Prueba 2\Prueba_2.aux
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\Arquímedes\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmex10.pfb
